@@ -4,7 +4,7 @@ import useStyles from './styles';
 import { Grid, CircularProgress } from '@material-ui/core';
 import ToDoItem  from './ToDoItem/ToDoItem';
 
-const ToDoList = () => {
+const ToDoList = ({ setSelectedCardId }) => {
   const todos = useSelector((state) => state.todos);
   const classes = useStyles();
 
@@ -18,7 +18,7 @@ const ToDoList = () => {
             todos.map((todo) => (
               <Grid key={todo.id} item xs={12} sm={6} md={6}>
                   {console.log(todo)}
-                  <ToDoItem todo = {todo}/>
+                  <ToDoItem todo={todo} setSelectedCardId={setSelectedCardId}/>
               </Grid>
             ))
           }

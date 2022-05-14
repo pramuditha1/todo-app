@@ -8,15 +8,23 @@ export const getTodos = () => async (dispatch) => {
         const {data} = await api.fetchTodos();
         dispatch({type: FETCH_ALL, payload: data})
     } catch (error) {
-        console.log(error.message)
+        console.log(error)
     }  
 }
 
 export const createTodo = (todoItem) => async (dispatch) => {
-    console.log(`create todo item is : ${JSON.stringify(todoItem)}`)
     try {
         const { data } = await api.createTodo(todoItem);
         dispatch({ type: CREATE, payload: data});
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const updateTodo = (id, updatedItem) => async (dispatch) => {
+    try {
+        const {data} = await api.updatetodo(id, updatedItem);
+        dispatch({type: UPDATE, payload: data});
     } catch (error) {
         console.log(error)
     }

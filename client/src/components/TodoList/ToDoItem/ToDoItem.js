@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import defaultImage from '../../../images/defaultImage.png';
 
-const ToDoItem = ({ todo }) => {
+const ToDoItem = ({ todo, setSelectedCardId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -28,7 +28,7 @@ const ToDoItem = ({ todo }) => {
       <div className={classes.updateIcon}>
         <Button 
         style={{ color: 'white' }} size="small" 
-        onClick={() => {}}>
+        onClick={() => setSelectedCardId(todo._id)}>
           <SettingsIcon fontSize="medium" />
         </Button>
       </div>
