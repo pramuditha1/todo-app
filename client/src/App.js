@@ -1,40 +1,23 @@
-import React from 'react'
-import Container from '@mui/material/Container';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Grow from '@mui/material/Grow';
-import Grid from '@mui/material/Grid';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Container } from '@material-ui/core';
+// Child components
+import { Navbar } from './components/Navbar/Navbar';
+import { Home } from './components/Home/Home';
+import { Auth } from './components/Auth/Auth';
 
 const App = () => {
-    return(
-        <div>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static">
-                    <Toolbar>
-                    <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                        ToDo App
-                    </Typography>
-                    <Button color="inherit">Sign in</Button>
-                    </Toolbar>
-                </AppBar>
-            </Box>
-            <Grow in>
-                <Container>
-                    <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
-                            Task list
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                            To do entry form
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Grow>
-        </div>
-    )
+  return (
+    <BrowserRouter>
+        <Container maxWidth="lg">
+          <Navbar/>
+          <Routes>
+            <Route path="/" exact element={<Home/>} />
+            <Route path="/auth" exact element={<Auth/>}/>
+          </Routes>
+        </Container>
+    </BrowserRouter>
+  )
 }
 
 export default App

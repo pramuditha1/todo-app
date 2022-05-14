@@ -5,6 +5,8 @@ import ToDo from "../models/Todo.js";
 export const getTodos = async (req, res) => {
     try {
         const toDoList = await ToDo.find();
+        console.log(`************* ${toDoList} **********************`);
+        
         res.status(200).json(toDoList);
     } catch (error) {
         res.status(404).json({error: error.message})
