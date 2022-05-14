@@ -29,3 +29,12 @@ export const updateTodo = (id, updatedItem) => async (dispatch) => {
         console.log(error)
     }
 }
+
+export const deleteTodo = (id) => async (dispatch) => {
+    try {
+        await api.deleteTodo(id);
+        dispatch({type: DELETE, payload: id});
+    } catch (error) {
+        console.log(error);
+    }
+}

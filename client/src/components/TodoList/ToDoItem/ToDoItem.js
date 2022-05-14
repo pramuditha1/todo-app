@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import defaultImage from '../../../images/defaultImage.png';
 
+import { deleteTodo } from '../../../actions/todo_actions';
+
 const ToDoItem = ({ todo, setSelectedCardId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -39,7 +41,7 @@ const ToDoItem = ({ todo, setSelectedCardId }) => {
         <Typography variant="body2" color="textSecondary">{todo.taskDescription}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => {}}><DeleteIcon fontSize="small" /> Delete</Button>
+        <Button size="small" color="primary" onClick={() => dispatch(deleteTodo(todo._id))}><DeleteIcon fontSize="small" /> Delete</Button>
       </CardActions>
     </Card>
   );

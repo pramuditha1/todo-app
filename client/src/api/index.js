@@ -11,3 +11,7 @@ export const createTodo = (newItem) => {
 export const updatetodo = (id, updatedItem) => {
     axios.patch(`${url}${id}`, updatedItem);
 }
+
+export const deleteTodo = (id) => {
+    axios.delete(`${url}${id}`);
+}

@@ -8,6 +8,8 @@ export default (todos = [], action) => {
             return [...todos, action.payload];
         case UPDATE:
             return todos.map((todo) => todo._id === action.payload._id? action.payload : todo);
+        case DELETE:
+            return todos.map((todo) => todo._id !== action.payload.id);
         default:
             return todos;
     }
