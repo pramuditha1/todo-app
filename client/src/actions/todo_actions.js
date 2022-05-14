@@ -13,6 +13,7 @@ export const getTodos = () => async (dispatch) => {
 }
 
 export const createTodo = (todoItem) => async (dispatch) => {
+    console.log(`create todo item is : ${JSON.stringify(todoItem)}`)
     try {
         const { data } = await api.createTodo(todoItem);
         dispatch({ type: CREATE, payload: data});

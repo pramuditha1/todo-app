@@ -5,7 +5,7 @@ import ToDoList from '../TodoList/ToDoList';
 
 import { useDispatch } from 'react-redux';
 import { getTodos } from '../../actions/todo_actions';
-import { Form } from '../Form/Form';
+import Form from '../Form/Form';
 
 export const Home = () => {
     const dispatch = useDispatch();
