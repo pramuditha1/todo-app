@@ -1,13 +1,17 @@
 import React from 'react';
-import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 import useStyles from './styles';
 
+import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from '../Auth/LogoutButton';
+import LoginButton from '../Auth/LoginButton';
+
 export const Navbar = () => {
     const classes = useStyles();
 
-    const user = null;
+    const { user, isAuthenticated } = useAuth0();
 
     return(
         <AppBar className={classes.appBar} position="static" color="inherit">
@@ -16,13 +20,13 @@ export const Navbar = () => {
             </Typography>
             <Toolbar className={classes.toolbar}>
                 {
-                    user ? (
+                    isAuthenticated ? (
                         <div className={classes.profile}>
-                            <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
-                            <Button variant='contained' color="secondary">Logout</Button>
+                            <Typography className={classes.userName} variant="h6">{user.name}</Typography>
+                            <LogoutButton/>
                         </div>
                     ) : (
-                        <Button component={Link} to="/auth" variant='contained' color="primary">Sign In</Button>
+                        <LoginButton/>
                     )
                 }
             </Toolbar>
