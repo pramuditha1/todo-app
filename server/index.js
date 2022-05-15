@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+// import helmet from 'helmet';
 
 // import routes
 import todoRoutes from './routes/toDos.js';
@@ -11,6 +12,7 @@ const app = express();
 //environment variable file configuration
 dotenv.config();
 
+// app.use(helmet());
 app.use(bodyParser.json({ limit: "25mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "25mb", extended: true }));
 app.use(cors());
