@@ -8,6 +8,7 @@ import { getTodos } from '../../actions/todo_actions';
 import Form from '../Form/Form';
 
 import { useAuth0 } from "@auth0/auth0-react";
+import { SET_AUTH_DATA } from '../../constants/actionType';
 
 export const Home = () => {
     // maintain selectedCardId to load selected card details in the form
@@ -16,10 +17,16 @@ export const Home = () => {
     const { user, isAuthenticated } = useAuth0();
     const todos = useSelector((state) => state.todos);
 
-    console.log("todo array is - ", todos)
     useEffect(() => {
-      dispatch(getTodos())
-    }, [selectedCardId, dispatch])
+        //set local storage for login details and update store
+        console.log('dispatching auth data...')
+        try {
+            dispatch({ type: SET_AUTH_DATA, data: { user }})
+        } catch (error) {
+            console.log(error);
+        }
+        dispatch(getTodos())
+    }, [user, selectedCardId, dispatch])
 
     return(
         <Grow in>

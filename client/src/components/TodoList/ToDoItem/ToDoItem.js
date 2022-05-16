@@ -47,7 +47,7 @@ const ToDoItem = ({ todo, setSelectedCardId }) => {
       {
         isAuthenticated && 
         <CardActions className={classes.cardActions}>
-          `<Button size="small" color="primary" 
+          <Button size="small" color="primary" 
           onClick={
             () => {
               dispatch(deleteTodo(todo._id));
@@ -55,7 +55,7 @@ const ToDoItem = ({ todo, setSelectedCardId }) => {
           }>
             <DeleteIcon fontSize="small" /> Delete</Button>
         </CardActions>
-      }      
+      }
     </Card>
   );
 };
