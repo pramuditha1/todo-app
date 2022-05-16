@@ -14,7 +14,9 @@ export const Home = () => {
     const [selectedCardId, setSelectedCardId] = useState(null);
     const dispatch = useDispatch();
     const { user, isAuthenticated } = useAuth0();
+    const todos = useSelector((state) => state.todos);
 
+    console.log("todo array is - ", todos)
     useEffect(() => {
       dispatch(getTodos())
     }, [selectedCardId, dispatch])

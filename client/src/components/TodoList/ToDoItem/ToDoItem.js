@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import defaultImage from '../../../images/defaultImage.png';
 
-import { deleteTodo } from '../../../actions/todo_actions';
+import { deleteTodo, getTodos } from '../../../actions/todo_actions';
 
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -47,7 +47,13 @@ const ToDoItem = ({ todo, setSelectedCardId }) => {
       {
         isAuthenticated && 
         <CardActions className={classes.cardActions}>
-          `<Button size="small" color="primary" onClick={() => dispatch(deleteTodo(todo._id))}><DeleteIcon fontSize="small" /> Delete</Button>
+          `<Button size="small" color="primary" 
+          onClick={
+            () => {
+              dispatch(deleteTodo(todo._id));
+            }
+          }>
+            <DeleteIcon fontSize="small" /> Delete</Button>
         </CardActions>
       }      
     </Card>

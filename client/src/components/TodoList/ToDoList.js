@@ -15,9 +15,9 @@ const ToDoList = ({ setSelectedCardId }) => {
         <Grid className={classes.mainContainer} container alignItems="stretch" spacing={3}>
           {
             //iterate all the todo items and cater ToDo cards
-            todos.map((todo) => (
-              <Grid key={todo.id} item xs={12} sm={6} md={6}>
-                  {console.log(todo)}
+            todos.map((todo, i) => (
+              <Grid key={i} item xs={12} sm={6} md={6}>
+                  {/* {console.log(todo)} */}
                   <ToDoItem todo={todo} setSelectedCardId={setSelectedCardId}/>
               </Grid>
             ))
