@@ -24,11 +24,6 @@ const ToDoItem = ({ todo, setSelectedCardId }) => {
         className={classes.media}
         image={todo.attachment || defaultImage}/>
 
-      {/* shpw the time duration */}
-      <div className={classes.moment}>
-        <Typography variant="body2">{moment(todo.createdAt).fromNow()}</Typography>
-      </div>
-
       {/* todo item update icon */}
       {
         isAuthenticated && 
@@ -47,13 +42,13 @@ const ToDoItem = ({ todo, setSelectedCardId }) => {
       {
         isAuthenticated && 
         <CardActions className={classes.cardActions}>
-          <Button size="small" color="primary" 
-          onClick={
-            () => {
-              dispatch(deleteTodo(todo._id));
-            }
-          }>
-            <DeleteIcon fontSize="small" /> Delete</Button>
+            <Button size="small" color="primary" 
+            onClick={
+              () => {
+                dispatch(deleteTodo(todo._id));
+              }
+            }>
+              <DeleteIcon fontSize="small" /> Delete</Button>
         </CardActions>
       }
     </Card>

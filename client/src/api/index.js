@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:4600/todo/';
+const url = 'https://todo93.herokuapp.com/todo/';
 
 export const fetchTodos = () => {
     return axios.get(url)
